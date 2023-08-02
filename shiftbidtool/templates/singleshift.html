@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<H1>Shift: {{ thisShift.shiftID }}</H1>
+<br>
+<div class="singleShift-content">
+    <table class="single-shift-table">
+        <thead>
+            <th>Week</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>System</th>
+            <th>Primary Crew</th>
+            <th>Secondary Crew</th>
+            <th>Supervisor</th>
+            <th>AOSF</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Week 1</td>
+                <td>{% if thisShift.w1TS %} {{ thisShift.w1TS }} - {{ thisShift.w1TE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w1WS %} {{ thisShift.w1WS }} - {{ thisShift.w1WE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w1ThS %} {{ thisShift.w1ThS }} - {{ thisShift.w1ThE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w1FS %} {{ thisShift.w1FS }} - {{ thisShift.w1FE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w1SaS %} {{ thisShift.w1SaS }} - {{ thisShift.w1SaE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w1SuS %} {{ thisShift.w1SuS }} - {{ thisShift.w1SuE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w1MS %} {{ thisShift.w1MS }} - {{ thisShift.w1ME }}{%else%}{% endif %}</td>
+                <td rowspan="2">{{ thisShift.truckType }}</td>
+                <td rowspan="2">{{ thisShift.PrimaryCrew1 }}</td>
+                <td rowspan="2">{{ thisShift.SecondaryCrew1 }}</td>            
+                <td rowspan="2">{{ thisShift.shiftSup }}</td>
+                <td rowspan="2">{{ thisShift.shiftAOSF }}</td>
+            </tr>
+            <tr>
+                <td>Week 2</td>
+                <td>{% if thisShift.w2TS %} {{ thisShift.w2TS }} - {{ thisShift.w2TE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w2WS %} {{ thisShift.w2WS }} - {{ thisShift.w2WE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w2ThS %} {{ thisShift.w2ThS }} - {{ thisShift.w2ThE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w2FS %} {{ thisShift.w2FS }} - {{ thisShift.w2FE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w2SaS %} {{ thisShift.w2SaS }} - {{ thisShift.w2SaE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w2SuS %} {{ thisShift.w2SuS }} - {{ thisShift.w2SuE }}{%else%}{% endif %}</td>
+                <td>{% if thisShift.w2MS %} {{ thisShift.w2MS }} - {{ thisShift.w2ME }}{%else%}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

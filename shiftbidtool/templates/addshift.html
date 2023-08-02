@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form novalidate method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add/Edit Shift</legend>
+                <div class="form-group">
+                    {{ form.shiftID.label(class="form-control-label") }}
+
+                    {% if form.shiftID.errors %}
+                        {{ form.shiftID(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.shiftID.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.shiftID(class="form-control form-control-lg") }}
+                    {% endif %}
+
+                </div>
+                <div class="form-group">
+                    {{ form.specIndicator.label(class="form-control-label") }}
+                    {% if form.specIndicator.errors %}
+                        {{ form.specIndicator(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.specIndicator.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.specIndicator(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.shiftSup.label(class="form-control-label") }}
+                    {% if form.shiftSup.errors %}
+                        {{ form.shiftSup(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.shiftSup.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.shiftSup(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.shiftAOSF.label(class="form-control-label") }}
+                    {% if form.shiftAOSF.errors %}
+                        {{ form.shiftAOSF(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.shiftAOSF.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.shiftAOSF(class="form-control form-control-lg") }}
+                    {% endif %}
+
+                </div>
+                <div class="form-group">
+                    {{ form.truckType.label(class="form-control-label") }}
+                    {% if form.truckType.errors %}
+                        {{ form.truckType(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.truckType.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.truckType(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.PrimaryCrew1.label(class="form-control-label") }}
+                    {% if form.PrimaryCrew1.errors %}
+                        {{ form.PrimaryCrew1(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.PrimaryCrew1.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.PrimaryCrew1(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.PrimaryCrew2.label(class="form-control-label") }}
+                    {% if form.PrimaryCrew2.errors %}
+                        {{ form.PrimaryCrew2(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.PrimaryCrew2.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.PrimaryCrew2(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.SecondaryCrew1.label(class="form-control-label") }}
+                    {% if form.SecondaryCrew1.errors %}
+                        {{ form.SecondaryCrew1(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.SecondaryCrew1.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.SecondaryCrew1(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.SecondaryCrew2.label(class="form-control-label") }}
+                    {% if form.SecondaryCrew2.errors %}
+                        {{ form.SecondaryCrew2(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.SecondaryCrew2.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.SecondaryCrew2(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

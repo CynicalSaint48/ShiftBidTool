@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form novalidate method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Get Employee</legend>
+                <div class="form-group">
+                    {{ form.shiftID.label(class="form-control-label") }}
+                    {% if form.shiftID.errors %}
+                    {{ form.shiftID(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.shiftID.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.shiftID(class="form-control form-control-lg") }}
+                {% endif %}
+                </div>
+            </fieldset>
+            
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            <div>
+                <a href="{{ url_for('addShift') }}">Shift Not in the list?  Click Here to Add a Shift</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

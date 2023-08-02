@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Employee List Page</h1>
+<br>
+<table method="GET" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Bid Type</th>
+            <th>Activated?</th>
+            <th>Admin?</th>
+            <th>Phone Number</th>
+        <tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.empID }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.fName }}</td>
+            <td>{{ user.lName }}</td>
+            <td>{{ user.bidType }}</td>
+            <td>{{ user.activated }}</td>
+            <td>{{ user.isAdmin }}</td>
+            <td>{{ user.phoneNumber }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

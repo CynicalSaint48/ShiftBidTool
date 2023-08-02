@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="accordion" data-accordion>
+    <div class="accordion-panel current-emp" id="curr-emp" curr-data-active="true">
+        <h3 id="panel1heading">
+            <button
+            class="accordion-trigger currTrigger"
+            aria-controls="panel1-content"
+            aria-expanded="true"
+            currButton
+            >
+                <span id="panel1title">Current Employee</span>
+            </button>
+        </h3>
+        <div
+        class="accordion-content"
+        id="panel1-content"
+        aria-labelledby="panel1-heading"
+        role="region"
+        >
+            <h4 class="emp-name-header" >Bob Denver</h4>
+            <div class="panel-current" aria-hidden="false">
+                <div class="curr-emp-content">
+                    <div class="curr-emp-demos">
+                        Contact:  704-555-5248<br>
+                        <br>
+                        bobd@medic911.com<br>
+                        Employee Number: 000254<br>
+                        Bid Type:  PCC<br>
+                        Bid Rank:  25<br>
+                        
+                    </div>
+                    <div class="curr-emp-timing">
+                        <H3>Timer: &emsp; &emsp;
+                            
+                                <label id="minutes">00</label>
+                                <label id="colon">:</label>
+                                <label id="seconds">00</label>
+                                    <script type="text/javascript">
+                                        var minutesLabel = document.getElementById("minutes");
+                                        var secondsLabel = document.getElementById("seconds");
+                                        var totalSeconds = 0;
+                                        setInterval(setTime, 1000);
+
+                                        function setTime()
+                                        {
+                                            ++totalSeconds;
+                                            secondsLabel.innerHTML = pad(totalSeconds%60);
+                                            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+                                        }
+
+                                        function pad(val)
+                                        {
+                                            var valString = val + "";
+                                            if(valString.length < 2)
+                                            {
+                                                return "0" + valString;
+                                            }
+                                            else
+                                            {
+                                                return valString;
+                                            }
+                                        }
+                                    </script>
+                        </H3>
+                        <br>
+                        Originally scheduled for:  14:25<br>
+                        Employee is:  Off-Duty<br>
+                    </div>
+                    <div class="grid-col-span-2"><H3 >Employee's Top Remaining Shift Choices</H3></div>
+                    <div class="curr-emp-table grid-col-span-2">
+                        <table>
+                            <thead>
+                                <th>Rank</th>
+                                <th>Shift</th>
+                                <th>Primary Crew (PCC)</th>
+                                <th>Secondary Crew (NCC)</th>
+                                <th>Supervisor</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4</td>
+                                    <td>C13-11</td>
+                                    <td></td>
+                                    <td>Ricky Rescue</td>
+                                    <td>Dan Baltimore</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>A12</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Kenny Phillips</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>A13</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Kenny Phillips</td>
+                                </tr>
+                                <tr>
+                                    <td>22</td>
+                                    <td>B13-05</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Drew Smith</td>
+                                </tr>
+                                <tr>
+                                    <td>24</td>
+                                    <td>B13-11</td>
+                                    <td></td>
+                                    <td>Tim Tebow</td>
+                                    <td>Chris Simmons</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>                
+                <div>
+                    <h3>Live Notes:</h3>
+                    <br>
+                    <textarea class="textarea" placecholder="Enter Live Notes..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-panel next-emp" id="next-emp" next-data-active="false">
+        <h3 id="panel2heading">
+            <button
+            class="accordion-trigger nextTrigger"
+            aria-controls="panel2-content"
+            aria-expanded="false"
+            nextButton
+            >
+                <span id="panel2title">Next Employee</span>
+            </button>
+        </h3>
+        <div
+        class="accordion-content"
+        id="panel2-content"
+        aria-labelledby="panel2-heading"
+        role="region"
+        >
+            <h4 class="emp-name-header">Captain Kangeroo</h4>
+            <div class="panel-next" aria-hidden="true">
+                <div class="curr-emp-content">
+                    <div class="curr-emp-demos">
+                        Contact:  980-555-0001<br>
+                        <br>
+                        captaink@medic911.com<br>
+                        Employee Number: 100454<br>
+                        Bid Type:  PCC<br>
+                        Bid Rank:  26<br>
+                        
+                    </div>
+                    <div class="curr-emp-timing">
+                        <H3></H3>
+                        <br>
+                        Originally scheduled for:  14:30<br>
+                        Employee is:  <b style="color:Red;">On-Duty</b><br>
+                    </div>
+                    <div class="grid-col-span-2"><H3 >Employee's Top Remaining Shift Choices</H3></div>
+                    <div class="curr-emp-table grid-col-span-2">
+                        <table>
+                            <thead>
+                                <th>Rank</th>
+                                <th>Shift</th>
+                                <th>Primary Crew (PCC)</th>
+                                <th>Secondary Crew (NCC)</th>
+                                <th>Supervisor</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4</td>
+                                    <td>C13-11</td>
+                                    <td></td>
+                                    <td>Ricky Rescue</td>
+                                    <td>Dan Baltimore</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td>
+                                    <td>A12</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Kenny Phillips</td>
+                                </tr>
+                                <tr>
+                                    <td>16</td>
+                                    <td>A13</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Kenny Phillips</td>
+                                </tr>
+                                <tr>
+                                    <td>22</td>
+                                    <td>B13-05</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Drew Smith</td>
+                                </tr>
+                                <tr>
+                                    <td>24</td>
+                                    <td>B13-11</td>
+                                    <td></td>
+                                    <td>Tim Tebow</td>
+                                    <td>Chris Simmons</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h3>Live Notes:</h3>
+                    <br>
+                    <textarea class="textarea2" placecholder="Enter Live Notes..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock content %}
