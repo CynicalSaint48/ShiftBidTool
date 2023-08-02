@@ -86,22 +86,15 @@ class ActivateEmployeeForm(FlaskForm):
     submit = SubmitField('Save and Log In')
 
 class LoginForm(FlaskForm):
-    email = StringField('Email', choices=updateShifts,
+    email = StringField('Email',
                          validators=[DataRequired(), Email()])
     password = StringField('Key Code',
                              validators=[DataRequired(), Length(min=18, max=18)])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Save and Log In')
 
-# class GetShiftForm(FlaskForm):
-#     shiftID = SelectField('Shift ID', choices=shiftList,
-#                             validators=[DataRequired(message="Required Field")])
-#     shiftID = SelectField('Shift ID',
-#                             validators=[DataRequired(message="Required Field")])
-#     submit = SubmitField('Get Shift')
-
 class GetShiftForm(FlaskForm):
-    shiftID = SelectField('Shift ID',
+    shiftID = SelectField('Shift ID', choices=updateShifts,
                             validators=[DataRequired(message="Required Field")])
     shiftID = SelectField('Shift ID',
                             validators=[DataRequired(message="Required Field")])
