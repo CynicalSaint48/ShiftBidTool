@@ -16,5 +16,4 @@ reservations = ['blahblah', 'Not Reserved']
 supervisors = ['Andrew Smith', 'Brian Smith', 'Chris Simmons', 'Dan Baltimore', 'Don Shue', 'Gabe McGaha', 'John Crunk', 'John Stroup', 'Jose Gonzalez', 'Joshua Baun', 'Kenny Phillips', 'Siobhan Klass']
 assistants = ['', 'AOSF1', 'AOSF2']
 
-
 from shiftbidtool import routes

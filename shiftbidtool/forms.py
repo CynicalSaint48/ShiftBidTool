@@ -11,10 +11,10 @@ def updateShifts():
         shiftList.append(shift.shiftID)
     return shiftList
 
-shifts = Shift.query.all()
-shiftList = []
-for shift in shifts:
-    shiftList.append(shift.shiftID)
+# shifts = Shift.query.all()
+# shiftList = []
+# for shift in shifts:
+#     shiftList.append(shift.shiftID)
 
 systemGroups = ['NET-PCC', 'NET-TL', 'ALS-PCC', 'NCC']
 
@@ -86,15 +86,22 @@ class ActivateEmployeeForm(FlaskForm):
     submit = SubmitField('Save and Log In')
 
 class LoginForm(FlaskForm):
-    email = StringField('Email',
+    email = StringField('Email', choices=updateShifts,
                          validators=[DataRequired(), Email()])
     password = StringField('Key Code',
                              validators=[DataRequired(), Length(min=18, max=18)])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Save and Log In')
 
+# class GetShiftForm(FlaskForm):
+#     shiftID = SelectField('Shift ID', choices=shiftList,
+#                             validators=[DataRequired(message="Required Field")])
+#     shiftID = SelectField('Shift ID',
+#                             validators=[DataRequired(message="Required Field")])
+#     submit = SubmitField('Get Shift')
+
 class GetShiftForm(FlaskForm):
-    shiftID = SelectField('Shift ID', choices=shiftList,
+    shiftID = SelectField('Shift ID',
                             validators=[DataRequired(message="Required Field")])
     shiftID = SelectField('Shift ID',
                             validators=[DataRequired(message="Required Field")])
