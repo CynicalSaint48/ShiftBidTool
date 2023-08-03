@@ -136,7 +136,7 @@ def getShift():
         shift = Shift.query.filter_by(shiftID=form.shiftID.data).first()
         if shift:
             session["shiftID"] = shift.shiftID
-            flash(f'Shift {form.shiftID.data} Found', 'success')
+            # flash(f'Shift {form.shiftID.data} Found', 'success')
             return redirect(url_for('editShift'))
         else:
             flash(f'Shift {form.shiftID.data} not Found.  Please add it here.', 'danger')
@@ -147,7 +147,7 @@ def getShift():
 def addShift():
     form = AddShiftForm()
     if form.validate_on_submit():
-        shift = Shift(shiftID=form.shiftID.data, specIndicator=form.specIndicator.data, shiftSup=form.shiftSup.data, shiftAOSF=form.shiftAOSF.data, truckType=form.truckType.data, PrimaryCrew1=form.PrimaryCrew1.data, PrimaryCrew2=form.PrimaryCrew2.data, SecondaryCrew1=form.SecondaryCrew1.data, SecondaryCrew2=form.SecondaryCrew2.data)
+        shift = Shift(shiftID=form.shiftID.data, specIndicator=form.specIndicator.data, shiftSup=form.shiftSup.data, shiftAOSF=form.shiftAOSF.data, truckType=form.truckType.data, PrimaryCrew1=form.PrimaryCrew1.data, PrimaryCrew2=form.PrimaryCrew2.data, SecondaryCrew1=form.SecondaryCrew1.data)
         db.session.add(shift)
         db.session.commit()
         print("HERE WE ARE")
@@ -169,8 +169,7 @@ def editShift():
     PrimaryCrew1 = shift.PrimaryCrew1
     PrimaryCrew2 = shift.PrimaryCrew2
     SecondaryCrew1 = shift.SecondaryCrew1
-    SecondaryCrew2 = shift.SecondaryCrew2
-    form = EditShiftForm(shiftID=shiftID, specIndicator=specIndicator, shiftSup=shiftSup, shiftAOSF=shiftAOSF, truckType=truckType, PrimaryCrew1=PrimaryCrew1, PrimaryCrew2=PrimaryCrew2, SecondaryCrew1=SecondaryCrew1, SecondaryCrew2=SecondaryCrew2)  
+    form = EditShiftForm(shiftID=shiftID, specIndicator=specIndicator, shiftSup=shiftSup, shiftAOSF=shiftAOSF, truckType=truckType, PrimaryCrew1=PrimaryCrew1, PrimaryCrew2=PrimaryCrew2, SecondaryCrew1=SecondaryCrew1)  
     
     if form.validate_on_submit():
         shift = Shift.query.filter_by(shiftID=form.shiftID.data).first()
@@ -181,12 +180,16 @@ def editShift():
         shift.PrimaryCrew1 = form.PrimaryCrew1.data
         shift.PrimaryCrew2 = form.PrimaryCrew2.data
         shift.SecondaryCrew1 = form.SecondaryCrew1.data
-        shift.SecondaryCrew2 = form.SecondaryCrew2.data
         db.session.commit()
         flash(f'Shift {form.shiftID.data} Updated', 'success')
-        return redirect(url_for('home'))
+        return redirect(url_for('getShift'))
 
     return render_template('editshift.html', title='Add Shift', form=form)
+
+@app.route("/ALS_shift_list")
+def alsShifts():
+    shifts = Shift.query.order_by(Shift.shiftID)
+    return render_template('ALSshifts.html', title='ALS Shift List', shifts=shifts)
 
 @app.route("/temp/singleview")
 def singleView():

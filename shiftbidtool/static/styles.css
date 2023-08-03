@@ -81,6 +81,7 @@ body {
 
   .row {
     display: flex;
+    flex-wrap: nowrap;
   }
   
   .goright {
@@ -328,7 +329,8 @@ body {
     min-width: 900px;
     font-weight: 500;
     border-radius: 5px 5px 0 0;
-    overflow: hidden;
+    /* overflow: hidden; */
+    height: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   }
 
@@ -344,11 +346,41 @@ body {
     padding: 2px 15px;
     border-left: 1px solid #324482;
     border-right: 1px solid #324482;
+
   }
 
   .single-shift-table th {
     border-left: 1px solid #ffffff;
     border-right: 1px solid #ffffff;
+  }
+
+  .single-shift-table th:nth-of-type(1) {
+    text-align: center;
+  }
+
+  .single-shift-table th:nth-of-type(2) {
+    text-align: center;
+  }
+  .single-shift-table th:nth-of-type(3) {
+    text-align: center;
+  }
+  .single-shift-table th:nth-of-type(4) {
+    text-align: center;
+  }
+  .single-shift-table th:nth-of-type(5) {
+    text-align: center;
+  }
+  .single-shift-table th:nth-of-type(6) {
+    text-align: center;
+  }
+  .single-shift-table th:nth-of-type(7) {
+    text-align: center;
+  }
+  .single-shift-table th:nth-of-type(8) {
+    text-align: center;
+  }
+  .single-shift-table th:nth-of-type(9) {
+    text-align: center;
   }
 
   .single-shift-table th:first-of-type {
@@ -368,6 +400,15 @@ body {
   
   .single-shift-table tbody tr:nth-of-type(even) {
     background-color: #cedbea;
+  }
+  .single-shift-table tbody tr td:nth-child(9) {
+    background-color: #f3f3f3;
+  }
+  .single-shift-table tbody tr td:nth-child(10) {
+    background-color: #f3f3f3;
+  }
+  .single-shift-table tbody tr td:nth-child(11) {
+    background-color: #f3f3f3;
   }
 
   .single-shift-table tbody tr:last-of-type {
@@ -400,20 +441,24 @@ body {
     min-width: 100px;
   }
   .single-shift-table thead th:nth-child(9) {
-    min-width: 85px;
+    min-width: 100px;
   }
   .single-shift-table thead th:nth-child(10) {
-    min-width: 190px;
+    min-width: 85px;
   }
   .single-shift-table thead th:nth-child(11) {
-    min-width: 190px;
+    min-width: 85px;
   }
   .single-shift-table thead th:nth-child(12) {
-    min-width: 190px;
+    min-width: 85px;
   }
   .single-shift-table thead th:nth-child(13) {
     min-width: 190px;
   }
+  .single-shift-table thead th:nth-child(14) {
+    min-width: 190px;
+  }
+  
 
   .textarea {
     min-width: 600px;

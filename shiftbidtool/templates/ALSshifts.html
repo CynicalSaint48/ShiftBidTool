@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>ALS 911 Shift List</h1>
+<br>
+<div class="singleShift-content">
+    <table method="GET" class="single-shift-table">
+        <thead>
+            <th>Shift</th>
+            <th></th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>System</th>
+            <th>Primary Crew</th>
+            <th>Secondary Crew</th>
+            <th>Supervisor</th>
+            <th>AOSF</th>
+        </thead>
+        <tbody>
+            {% for shift in shifts %}
+            <tr>
+                <td rowspan="2">{{ shift.shiftID }}</td>
+                <td>Week 1</td>
+                <td>{% if shift.w1TS %} {{ shift.w1TS }} - {{ shift.w1TE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w1WS %} {{ shift.w1WS }} - {{ shift.w1WE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w1ThS %} {{ shift.w1ThS }} - {{ shift.w1ThE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w1FS %} {{ shift.w1FS }} - {{ shift.w1FE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w1SaS %} {{ shift.w1SaS }} - {{ shift.w1SaE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w1SuS %} {{ shift.w1SuS }} - {{ shift.w1SuE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w1MS %} {{ shift.w1MS }} - {{ shift.w1ME }}{%else%}{% endif %}</td>
+                {% if shift.PrimaryCrew2 %}
+                    <td >{{ shift.truckType }}</td>                
+                    <td>{{ shift.PrimaryCrew1 }}</td>
+                {% else %}
+                    <td rowspan="2">{{ shift.truckType }}</td> 
+                    <td rowspan="2">{{ shift.PrimaryCrew1 }}</td>
+                {% endif %}
+                <td rowspan="2">{{ shift.SecondaryCrew1 }}</td>            
+                <td rowspan="2">{{ shift.shiftSup }}</td>
+                <td rowspan="2">{{ shift.shiftAOSF }}</td>
+            </tr>
+            <tr>
+                
+                <td>Week 2</td>
+                <td>{% if shift.w2TS %} {{ shift.w2TS }} - {{ shift.w2TE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w2WS %} {{ shift.w2WS }} - {{ shift.w2WE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w2ThS %} {{ shift.w2ThS }} - {{ shift.w2ThE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w2FS %} {{ shift.w2FS }} - {{ shift.w2FE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w2SaS %} {{ shift.w2SaS }} - {{ shift.w2SaE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w2SuS %} {{ shift.w2SuS }} - {{ shift.w2SuE }}{%else%}{% endif %}</td>
+                <td>{% if shift.w2MS %} {{ shift.w2MS }} - {{ shift.w2ME }}{%else%}{% endif %}</td>
+                {% if shift.PrimaryCrew2 %}
+                    <td></td>
+                    <td>{{ shift.PrimaryCrew2 }}</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

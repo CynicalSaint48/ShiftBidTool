@@ -12,8 +12,11 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_message_category ='info'
 
-reservations = ['blahblah', 'Not Reserved']
-supervisors = ['Andrew Smith', 'Brian Smith', 'Chris Simmons', 'Dan Baltimore', 'Don Shue', 'Gabe McGaha', 'John Crunk', 'John Stroup', 'Jose Gonzalez', 'Joshua Baun', 'Kenny Phillips', 'Siobhan Klass']
-assistants = ['', 'AOSF1', 'AOSF2']
+reservations = ['AOSF', 'Paramedic Student', 'Not Reserved']
+supervisors = ['Andrew Smith', 'Brian Smith', 'Chris Simmons', 'Dan Baltimore', 'Don Shue', 'Gabe McGaha', 'John Crunk', 'John Stroup', 'Jose Gonzalez', 'Joshua Baun', 'Kenny Phillips', 'Siobhan Klass', 'Anthony Carriker', 'Matthew Lewis', 'Brandis Ridenhour', 'Luis Barrera',
+               'Anna Elliott', 'Andy Williams', 'Nic Pirone', 'Allison Kerley', 'RJ Goodman', 'Jackson Langevoort', 'Ashley Romero-Depalma', 'Shane Anaya', 'James Camarena', 'Bobby Harford', 'Kelly McCarthy', 'Jeremy Murphy', 'Chris Jerrell', 'Mike Stratton', 'Lizz Kurc', 'Joshua Baun', 'Daniel Geis']
+assistants = ['Anna Elliott', 'Andy Williams', 'Nic Pirone', 'Allison Kerley', 'RJ Goodman', 'Jackson Langevoort', 'Ashley Romero-Depalma', 'Shane Anaya', 'James Camarena', 'Bobby Harford', 'Kelly McCarthy', 'Jeremy Murphy', 'Chris Jerrell', 'Mike Stratton', 'Lizz Kurc', 'Joshua Baun', 'Daniel Geis']
+systemGroups = ['ALS 911', 'BLS 911', 'NET']
+bidTypes = ['NET-PCC', 'NET-TL', 'ALS-PCC', 'NCC']
 
 from shiftbidtool import routes

@@ -2,21 +2,17 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, ValidationError
 from wtforms.validators import DataRequired, Length, Email, EqualTo, NumberRange
 from shiftbidtool.models import User, Shift
-from shiftbidtool import reservations, supervisors, assistants
+from shiftbidtool import reservations, supervisors, systemGroups, bidTypes
 
 def updateShifts():
-    shifts = Shift.query.all()
+    # shifts = Shift.query.all()
+    shifts = Shift.query.order_by(Shift.shiftID)
     shiftList = []
     for shift in shifts:
         shiftList.append(shift.shiftID)
     return shiftList
 
-# shifts = Shift.query.all()
-# shiftList = []
-# for shift in shifts:
-#     shiftList.append(shift.shiftID)
 
-systemGroups = ['NET-PCC', 'NET-TL', 'ALS-PCC', 'NCC']
 
 
 class AddEmployeeForm(FlaskForm):
@@ -31,7 +27,7 @@ class AddEmployeeForm(FlaskForm):
                          validators=[DataRequired(message="Required Field"), Email(message="Invalid Email")])
     password = StringField('Key Code',
                              validators=[Length(min=18, max=18, message="Field must be exactly 18 characters long.  Please Copy/Paste")])    
-    bidType = SelectField('Crew Bid Type', choices=systemGroups,
+    bidType = SelectField('Crew Bid Type', choices=bidTypes,
                           validators=[DataRequired(message="Required Field")])
     isAdmin = BooleanField('Admin Access')
     submit = SubmitField('Save Employee')
@@ -58,7 +54,7 @@ class EditEmployeeForm(FlaskForm):
                          validators=[DataRequired(message="Required Field"), Email(message="Invalid Email")])
     password = StringField('Key Code',
                              validators=[Length(min=18, max=18, message="Field must be exactly 18 characters long.  Please Copy/Paste")])
-    bidType = SelectField('Crew Bid Type', choices=systemGroups,
+    bidType = SelectField('Crew Bid Type', choices=bidTypes,
                           validators=[DataRequired(message="Required Field")])
     isAdmin = BooleanField('Admin Access')
     submit = SubmitField('Save Employee')
@@ -105,12 +101,9 @@ class AddShiftForm(FlaskForm):
     shiftID = StringField('Shift ID',
                             validators=[DataRequired(message="Required Field")])
     specIndicator = SelectField('Reserved for:', choices = reservations, default='Not Reserved')
-    
-    assistants = ['Assistant 1', 'Assistant 2']
     shiftSup = SelectField('Ops Supervisor', choices=supervisors, 
                             validators=[DataRequired(message="Required Field")])
-    shiftAOSF = SelectField('Assistant Supervisor', choices=assistants)
-    systemGroups = ['NET', 'BLS 911', 'ALS 911']
+    shiftAOSF = SelectField('Assistant Supervisor', choices=supervisors)
     truckType = SelectField('System Group', choices=systemGroups, 
                          validators=[DataRequired(message="Required Field")])
     PrimaryCrew1 = StringField('Primary Crew 1 Employee ID',
@@ -118,8 +111,6 @@ class AddShiftForm(FlaskForm):
     PrimaryCrew2 = StringField('Primary Crew 2 Employee ID',
                              validators=[Length(max=6, message="Employee ID must be exactly 6 characters long.  Please include leading zeros.")])
     SecondaryCrew1 = StringField('Secondary Crew 1 Employee ID',
-                             validators=[Length(max=6, message="Employee ID must be exactly 6 characters long.  Please include leading zeros.")])
-    SecondaryCrew2 = StringField('Secondary Crew 2 Employee ID',
                              validators=[Length(max=6, message="Employee ID must be exactly 6 characters long.  Please include leading zeros.")])
     submit = SubmitField('Save Shift')
 
@@ -132,12 +123,10 @@ class EditShiftForm(FlaskForm):
     
     shiftID = StringField('Shift ID',
                             validators=[DataRequired(message="Required Field")])
-    reservations = ['AOSF', 'Something Else', 'Not Reserved']
     specIndicator = SelectField('Reserved for:', choices = reservations, default='Not Reserved')
     shiftSup = SelectField('Ops Supervisor', choices=supervisors, 
                             validators=[DataRequired(message="Required Field")])
-    shiftAOSF = SelectField('Assistant Supervisor', choices=assistants)
-    systemGroups = ['NET', 'BLS 911', 'ALS 911']
+    shiftAOSF = SelectField('Assistant Supervisor', choices=supervisors)
     truckType = SelectField('System Group', choices=systemGroups, 
                          validators=[DataRequired(message="Required Field")])
     PrimaryCrew1 = StringField('Primary Crew 1 Employee ID',
@@ -145,7 +134,5 @@ class EditShiftForm(FlaskForm):
     PrimaryCrew2 = StringField('Primary Crew 2 Employee ID',
                              validators=[Length(max=6, message="Employee ID must be exactly 6 characters long.  Please include leading zeros.")])
     SecondaryCrew1 = StringField('Secondary Crew 1 Employee ID',
-                             validators=[Length(max=6, message="Employee ID must be exactly 6 characters long.  Please include leading zeros.")])
-    SecondaryCrew2 = StringField('Secondary Crew 2 Employee ID',
                              validators=[Length(max=6, message="Employee ID must be exactly 6 characters long.  Please include leading zeros.")])
     submit = SubmitField('Update Shift')
