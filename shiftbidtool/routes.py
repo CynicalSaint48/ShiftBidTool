@@ -233,3 +233,46 @@ def singleView():
                       w2SaS=w2SaS, w2SaE=w2SaE, w2SuS=w2SuS, w2SuE=w2SuE, w2MS=w2MS, w2ME=w2ME,
                       shiftSup=shiftSup, shiftAOSF=shiftAOSF, PrimaryCrew1=PrimaryCrew1, SecondaryCrew1=SecondaryCrew1, truckType=truckType)
     return render_template('singleshift.html', title='Single Shift', thisShift=thisShift)
+
+@app.route("/temp/singleviewEdit")
+def singleViewEdit():
+    shiftID = "B13"
+    w1TS = ""
+    w1TE = ""
+    w1WS = "08:30"
+    w1WE = "22:00"
+    w1ThS = "08:30"
+    w1ThE = "21:30"
+    w1FS = ""
+    w1FE = ""
+    w1SaS = ""
+    w1SaE = ""
+    w1SuS = ""
+    w1SuE = ""
+    w1MS = "08:30"
+    w1ME = "22:00"
+    w2TS = "08:30"
+    w2TE = "18:30"
+    w2WS = ""
+    w2WE = ""
+    w2ThS = ""
+    w2ThE = ""
+    w2FS = "08:30"
+    w2FE = "18:30"
+    w2SaS = "08:30"
+    w2SaE = "18:30"
+    w2SuS = "08:30"
+    w2SuE = "18:30"
+    w2MS = ""
+    w2ME = ""
+    shiftSup = "Kenny Phillips"
+    shiftAOSF = "Ashley Romero de Palma"
+    truckType = "BLS-911"
+    PrimaryCrew1 = ""
+    SecondaryCrew1 = "Ricky Rescue"
+    thisShift = Shift(shiftID=shiftID, w1TS=w1TS, w1TE=w1TE, w1WS=w1WS, w1WE=w1WE, w1ThS=w1ThS, w1ThE=w1ThE,
+                      w1FS=w1FS, w1FE=w1FE, w1SaS=w1SaS, w1SaE=w1SaE, w1SuS=w1SuS, w1SuE=w1SuE, w1MS=w1MS, w1ME=w1ME,
+                      w2TS=w2TS, w2TE=w2TE, w2WS=w2WS, w2WE=w2WE, w2ThS=w2ThS, w2ThE=w2ThE, w2FS=w2FS, w2FE=w2FE, 
+                      w2SaS=w2SaS, w2SaE=w2SaE, w2SuS=w2SuS, w2SuE=w2SuE, w2MS=w2MS, w2ME=w2ME,
+                      shiftSup=shiftSup, shiftAOSF=shiftAOSF, PrimaryCrew1=PrimaryCrew1, SecondaryCrew1=SecondaryCrew1, truckType=truckType)
+    return render_template('singleshiftEdit.html', title='Single Shift Edit', thisShift=thisShift)

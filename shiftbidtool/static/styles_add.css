@@ -1,0 +1,217 @@
+.single-shift-table1 {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.7rem;
+  min-width: 900px;
+  font-weight: 500;
+  border-radius: 5px 5px 0 0;
+  height: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.single-shift-table1 thead tr {
+  background-color: #324482;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+.single-shift-table1 th,
+.single-shift-table1 td {
+  padding: 2px 4px;
+  border-left: 1px solid #324482;
+  border-right: 1px solid #324482;
+}
+.single-shift-table1 th {
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+}
+.single-shift-table1 th:nth-of-type(1) {
+  text-align: center;
+}
+.single-shift-table1 th:nth-of-type(2) {
+  text-align: center;
+}
+.single-shift-table1 th:nth-of-type(3) {
+  text-align: center;
+}
+.single-shift-table1 th:nth-of-type(4) {
+  text-align: center;
+}
+.single-shift-table1 th:nth-of-type(5) {
+  text-align: center;
+}
+.single-shift-table1 th:nth-of-type(6) {
+  text-align: center;
+}
+.single-shift-table1 th:nth-of-type(7) {
+  text-align: center;
+}
+.single-shift-table1 th:nth-of-type(8) {
+  text-align: center;
+}
+.single-shift-table1 th:nth-of-type(9) {
+  text-align: center;
+}
+
+.single-shift-table1 th:first-of-type {
+  border-left: 1px solid #324482;
+}
+.single-shift-table1 th:last-of-type {
+  border-right: 1px solid #324482;
+}
+
+.single-shift-table1 tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.single-shift-table1 tbody tr:nth-of-type(odd) {
+  background-color: #f3f3f3;
+}
+
+.single-shift-table1 tbody tr:nth-of-type(even) {
+  background-color: #cedbea;
+}
+
+.single-shift-table1 tbody tr:last-of-type {
+  border-bottom: 2px solid #324482;
+}
+
+.headRow1 th:nth-child(1) {
+  min-width: 70px;
+  text-align: center;
+}
+.headRow1 th:nth-child(2) {
+  min-width: auto;
+  text-align: center;
+}
+
+.headRow1 th:nth-child(3) {
+  min-width: auto;
+  text-align: center;
+}
+
+.headRow1 th:nth-child(4) {
+  min-width: auto;
+  text-align: center;
+}
+
+.headRow1 th:nth-child(5) {
+  min-width: auto;
+  text-align: center;
+}
+
+.headRow1 th:nth-child(6) {
+  min-width: auto;
+  text-align: center;
+}
+
+.headRow1 th:nth-child(7) {
+  min-width: auto;
+  text-align: center;
+}
+
+.headRow1 th:nth-child(8) {
+  min-width: auto;
+  text-align: center;
+}
+.headRow1 th:nth-child(9) {
+  min-width: 100px;
+  text-align: center;
+}
+.headRow2 th:nth-child(2) {
+  min-width: 60px;
+  text-align: center;
+}
+
+.headRow2 th:nth-child(3) {
+  min-width: 60px;
+  text-align: center;
+}
+
+.headRow2 th:nth-child(4) {
+  min-width: 60px;
+  text-align: center;
+}
+
+.headRow2 th:nth-child(5) {
+  min-width: 60px;
+  text-align: center;
+}
+
+.headRow2 th:nth-child(6) {
+  min-width: 60px;
+  text-align: center;
+}
+
+.headRow2 th:nth-child(7) {
+  min-width: 60px;
+  text-align: center;
+}
+
+.headRow2 th:nth-child(8) {
+  min-width: 60px;
+  text-align: center;
+}
+.headRow2 th:nth-child(9) {
+  min-width: 60px;
+  text-align: center;
+}
+.headRow2 th:nth-child(10) {
+  min-width: 60px;
+  text-align: center;
+}
+
+.headRow2 th:nth-child(11) {
+  min-width: 60px;
+  text-align: center;
+}
+.headRow2 th:nth-child(12) {
+  min-width: 60px;
+  text-align: center;
+}
+.headRow2 th:nth-child(13) {
+  min-width: 60px;
+  text-align: center;
+}
+.headRow2 th:nth-child(14) {
+  min-width: 60px;
+  text-align: center;
+}
+.headRow2 th:nth-child(15) {
+  min-width: 60px;
+  text-align: center;
+}
+.single-shift-table1 thead th {
+  max-height: 5px;
+}
+.single-shift-table1 tbody tr td {
+  overflow: hidden;
+  height: 0px;
+  white-space: pre;
+}
+.single-shift-table1 tbody tr {
+  line-height: 0px;
+}
+
+.single-shift-table1 tbody tr td:nth-of-type(even){
+  line-height: 0px;
+  text-align: right;
+  border-right: 0px solid #324482
+}
+.single-shift-table1 tbody tr td:nth-of-type(odd){
+  line-height: 0px;
+  text-align: left;
+  border-left: 0px solid #324482;
+}
+
+.single-shift-table1 tbody tr td:nth-of-type(1){
+  line-height: 0px;
+  text-align: left;
+  border-right: 1px solid #324482;
+  border-left: 1px solid #324482;
+}
+.single-shift-table1 tbody tr td:nth-of-type(15){
+  line-height: 0px;
+  text-align: left;
+  border-right: 1px solid #324482;
+}

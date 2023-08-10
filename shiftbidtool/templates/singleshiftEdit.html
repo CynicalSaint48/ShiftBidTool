@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+<H1>Shift: {{ thisShift.shiftID }}</H1>
+<br>
+<div class="singleShift-content">
+    <table class="single-shift-table1">
+        <thead>
+            <tr class="headRow1">
+                <th></th>
+                <th colspan="2">Tue</th>
+                <th colspan="2">Wed</th>
+                <th colspan="2">Thu</th>
+                <th colspan="2">Fri</th>
+                <th colspan="2">Sat</th>
+                <th colspan="2">Sun</th>
+                <th colspan="2">Mon</th>
+            </tr>
+            <tr  class="headRow2">
+                <th></th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Start</th>
+                <th>End</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Week 1</td>
+                <td>{{ thisShift.w1TS }}</td>
+                <td>{{ thisShift.w1TE }}</td>
+                <td>{{ thisShift.w1WS }}</td>
+                <td>{{ thisShift.w1WE }}</td>
+                <td>{{ thisShift.w1ThS }}</td>
+                <td>{{ thisShift.w1ThE }}</td>
+                <td>{{ thisShift.w1FS }}</td>
+                <td>{{ thisShift.w1FE }}</td>
+                <td>{{ thisShift.w1SaS }}</td>
+                <td>{{ thisShift.w1SaE }}</td>
+                <td>{{ thisShift.w1SuS }}</td>
+                <td>{{ thisShift.w1SuE }}</td>
+                <td>{{ thisShift.w1MS }}</td>
+                <td>{{ thisShift.w1ME }}</td>
+            </tr>
+            <tr>
+                <td>Week 2</td>
+                <td>{{ thisShift.w2TS }}</td>
+                <td>{{ thisShift.w2TE }}</td>
+                <td>{{ thisShift.w2WS }}</td>
+                <td>{{ thisShift.w2WE }}</td>
+                <td>{{ thisShift.w2ThS }}</td>
+                <td>{{ thisShift.w2ThE }}</td>
+                <td>{{ thisShift.w2FS }}</td>
+                <td>{{ thisShift.w2FE }}</td>
+                <td>{{ thisShift.w2SaS }}</td>
+                <td>{{ thisShift.w2SaE }}</td>
+                <td>{{ thisShift.w2SuS }}</td>
+                <td>{{ thisShift.w2SuE }}</td>
+                <td>{{ thisShift.w2MS }}</td>
+                <td>{{ thisShift.w2ME }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
