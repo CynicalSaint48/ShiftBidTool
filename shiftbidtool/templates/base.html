@@ -68,21 +68,21 @@
         {% if current_user.isAdmin == 1 %}
         <!-- <div class="col-md-2 goright"> -->
         <div class="goright">
-        <div class="content-section-r">
-            <h3>Admin Menu</h3>
-            <p class='text-muted'>
-              <ul class="list-group">
-                  <li class="list-group-item list-group-item-light"><a href="{{ url_for('getEmployee') }}">Add/Edit Employee</a></li>
-                  <li class="list-group-item list-group-item-light"><a href="{{ url_for('getShift') }}">Add/Edit Shift</a></li>
-                  <li class="list-group-item list-group-item-light"><a href="{{ url_for('employees') }}">Employee List</a></li>
-                  <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">BLS NET Shift List</a></li>
-                  <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">BLS 911 Shift List</a></li>
-                  <li class="list-group-item list-group-item-light"><a href="{{ url_for('alsShifts') }}">ALS Shift List</a></li>
-                  <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">Live Bid Summary Page</a></li>
-                  <li class="list-group-item list-group-item-light"><a href="{{ url_for('liveAdmin') }}">Live Bid Entry Page</a></li>
-              </ul>
-            </p>
-        </div>
+          <div class="content-section-r">
+              <h3>Admin Menu</h3>
+              <p class='text-muted'>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('getEmployee') }}">Add/Edit Employee</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('getShift') }}">Add/Edit Shift</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('employees') }}">Employee List</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">BLS NET Shift List</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">BLS 911 Shift List</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('alsShifts') }}">ALS Shift List</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">Live Bid Summary Page</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('liveAdmin') }}">Live Bid Entry Page</a></li>
+                </ul>
+              </p>
+          </div>
         </div>
         {% else %}
         <div class="col-md-2 goright">
