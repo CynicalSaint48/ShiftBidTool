@@ -16,32 +16,32 @@ def liveAdmin():
     return render_template('live_admin.html', title='Live Admin')
 
 
-@app.route("/login", methods=['GET', 'POST'])
-def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            login_user(user, remember=form.remember.data)
-            session["empID"] = user.empID
-            if user.phoneNumber == None:
-                flash(f"You don't have a contact phone number yet!  Please update to continue.", 'danger')
-                return redirect(url_for('activate'))
-            else:
-                print(user.phoneNumber)
-                flash(f'You have been logged in!', 'success') 
-                return redirect(url_for('home'))
-        else:
-            flash(f'Your email or key code are incorrect.  Please try again.', 'danger') 
-            return render_template('login.html', title='Log In', form=form)
-    return render_template('login.html', title='Log In', form=form)
+# @app.route("/login", methods=['GET', 'POST'])
+# def login():
+#     if current_user.is_authenticated:
+#         return redirect(url_for('home'))
+#     form = LoginForm()
+#     if form.validate_on_submit():
+#         user = User.query.filter_by(email=form.email.data).first()
+#         if user and bcrypt.check_password_hash(user.password, form.password.data):
+#             login_user(user, remember=form.remember.data)
+#             session["empID"] = user.empID
+#             if user.phoneNumber == None:
+#                 flash(f"You don't have a contact phone number yet!  Please update to continue.", 'danger')
+#                 return redirect(url_for('activate'))
+#             else:
+#                 print(user.phoneNumber)
+#                 flash(f'You have been logged in!', 'success') 
+#                 return redirect(url_for('home'))
+#         else:
+#             flash(f'Your email or key code are incorrect.  Please try again.', 'danger') 
+#             return render_template('login.html', title='Log In', form=form)
+#     return render_template('login.html', title='Log In', form=form)
 
-@app.route("/logout")
-def logout():
-    logout_user()
-    return redirect(url_for('home'))
+# @app.route("/logout")
+# def logout():
+#     logout_user()
+#     return redirect(url_for('home'))
 
 @app.route("/activation", methods=['GET', 'POST'])
 def activate():
@@ -276,3 +276,76 @@ def singleViewEdit():
                       w2SaS=w2SaS, w2SaE=w2SaE, w2SuS=w2SuS, w2SuE=w2SuE, w2MS=w2MS, w2ME=w2ME,
                       shiftSup=shiftSup, shiftAOSF=shiftAOSF, PrimaryCrew1=PrimaryCrew1, SecondaryCrew1=SecondaryCrew1, truckType=truckType)
     return render_template('singleshiftEdit.html', title='Single Shift Edit', thisShift=thisShift)
+
+@app.route("/proposal/1")
+def page1():
+    return render_template('1.html', title='Page 1')
+
+@app.route("/proposal/2")
+def page2():
+    return render_template('2.html', title='Page 2')
+
+@app.route("/proposal/3")
+def page3():
+    return render_template('3.html', title='Page 3')
+
+@app.route("/proposal/4")
+def page4():
+    return render_template('4.html', title='Page 4')
+
+@app.route("/proposal/5")
+def page5():
+    return render_template('5.html', title='Page 5')
+
+@app.route("/proposal/6")
+def page6():
+    return render_template('6.html', title='Page 6')
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            session["empID"] = user.empID
+            if user.phoneNumber == None:
+                flash(f"You don't have a contact phone number yet!  Please update to continue.", 'danger')
+                return redirect(url_for('activate'))
+            else:
+                print(user.phoneNumber)
+                flash(f'You have been logged in!', 'success') 
+                return redirect(url_for('page3'))
+        else:
+            flash(f'Your email or key code are incorrect.  Please try again.', 'danger') 
+            return render_template('login.html', title='Log In', form=form)
+    return render_template('login.html', title='Log In', form=form)
+
+@app.route("/login2", methods=['GET', 'POST'])
+def login2():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            session["empID"] = user.empID
+            if user.phoneNumber == None:
+                flash(f"You don't have a contact phone number yet!  Please update to continue.", 'danger')
+                return redirect(url_for('activate'))
+            else:
+                print(user.phoneNumber)
+                flash(f'You have been logged in!', 'success') 
+                return redirect(url_for('page3'))
+        else:
+            flash(f'Your email or key code are incorrect.  Please try again.', 'danger') 
+            return render_template('login.html', title='Log In', form=form)
+    return render_template('login.html', title='Log In', form=form)
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('login2'))

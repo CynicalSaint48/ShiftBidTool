@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.0/dist/bootstrap-table.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles_add.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    
+
+
+    <!-- Title -->
+    {% block title %}
+    {% if title %}
+        <title> Medic Shift Bid - {{ title }}</title>
+    {% else %}
+        <title> Medic Shift Bid </title>
+    {% endif %}
+    {% endblock %}
+
+</head>
+<body>
+
+    <!-- Nav Bar -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+          <div class="container-fluid mainmargins">
+            <a class="navbar-brand mr-4" href="/">Medic Shift Bid 2024</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">              
+                {% if current_user.is_authenticated %}
+                <h5 class="nav-item nav-link">{{ current_user.fName }} {{ current_user.lName }} ---</h5>
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+    <main role="main" class="container-fluid">
+        <div class="row">
+          <!-- <div class="col-md-7 mainmargins"> -->
+            <div class="mainmargins">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            {% block content %}
+              <H1> Shift Bid Tool Proposal:</H1><br><br>
+              <ul class="smaller">
+                <li><H2>Purpose-built system for Yearly and 'Mini' Shift Bids</H2></li>
+                  <p class="page1p">Created from scratch, allowing for complete customization</p>
+                
+              </ul>
+            
+            {% endblock %}
+            </div>
+        {% if current_user.is_authenticated %}
+        {% if current_user.isAdmin == 1 %}
+        <!-- <div class="col-md-2 goright"> -->
+        <!-- <div class="goright">
+          <div class="content-section-r">
+              <h3>Admin Menu</h3>
+              <p class='text-muted'>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('getEmployee') }}">Add/Edit Employee</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('getShift') }}">Add/Edit Shift</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('employees') }}">Employee List</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">BLS NET Shift List</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">BLS 911 Shift List</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('alsShifts') }}">ALS Shift List</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">Live Bid Summary Page</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="{{ url_for('liveAdmin') }}">Live Bid Entry Page</a></li>
+                </ul>
+              </p>
+          </div>
+        </div>
+        {% else %}
+        <div class="col-md-2 goright">
+          <div class="content-section-r">
+              <h3>Employee Menu</h3>
+              <p class='text-muted'>
+                  <ul class="list-group">
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">BLS NET Shift List</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">BLS 911 Shift List</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('alsShifts') }}">ALS Shift List</a></li>
+                      <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}">Live Bid Summary Page</a></li>
+                  </ul>
+              </p>
+          </div>
+          </div> -->
+        {% endif %}
+        {% endif %}
+        
+      </div>
+    </main>
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.0/dist/bootstrap-table.min.js"></script>
+
+    <!-- My JS -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    
+</body>
+</html>
